@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white;
+  }
+}
+
+@layer utilities {
+  .hero-glow {
+    background: radial-gradient(circle at center, rgba(130, 202, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+
+  .bg-hero-gradient {
+    /* transitioning #82caff -> #0041c2 -> #0f52ba */
+    background: linear-gradient(to right, #000000 0%, #0041c2 35%, #0f52ba 60%, #1034a6 85%, #000000 100%);
+  }
+}
