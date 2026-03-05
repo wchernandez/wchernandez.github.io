@@ -99,62 +99,66 @@ function Hero() {
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] hero-glow rounded-full pointer-events-none" />
 
-      {/* Bottom fade to black */}
-      <div className="absolute bottom-0 left-0 w-full h-40 md:h-80 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none z-10" />
+      {/* Centered Headshot image - Hidden on mobile/tablet, visible only from lg breakpoint (1024px+) */}
+      <div className="hidden lg:flex absolute inset-x-0 bottom-[-6vh] top-0 items-end justify-center z-0 pointer-events-none overflow-hidden select-none">
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-20">
+        <img
+          src="/profile.png"
+          alt="William Hernandez"
+          className="w-auto h-[70vh] md:h-[75vh] lg:h-[85vh] max-w-none object-contain object-bottom opacity-100 transition-all duration-1000"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)',
+            maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)'
+          }}
+        />
+      </div>
 
-        {/* Left Column: Title */}
-        <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
-          <p className="font-sans text-secondary text-lg mb-2 animate-fade-in">William Hernandez</p>
-          <h1 className="font-sans font-bold text-5xl md:text-7xl xl:text-8xl leading-[1.1] tracking-tight mb-6 text-white">
-            Software<br className="hidden md:block" /> Engineer
-          </h1>
-          <p className="font-sans text-secondary text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed">
-            Second year student studying a <span className="text-white font-semibold">Bachelor of Engineering<br className="hidden sm:block" /> with Honours in Software</span> at the University of Waikato.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#projects" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-background text-sm font-bold hover:bg-white/90 hover:scale-105 transition-all active:scale-95 shadow-lg shadow-white/10">
-              VIEW MY PROJECTS
-            </a>
-            <a href="/public/william_hernandez_cv.pdf" download className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-bold hover:bg-white/10 transition-all active:scale-95">
-              <Download size={18} />
-              DOWNLOAD MY CV
-            </a>
-          </div>
-        </div>
+      {/* Bottom fade to black - Z-index elevated to layer OVER the image */}
+      <div className="absolute bottom-0 left-0 w-full h-60 md:h-[40rem] bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none z-10" />
 
-        {/* Center: Headshot image */}
-        <div className="lg:col-span-3 flex justify-center order-first lg:order-none relative">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-auto lg:h-[70vh] flex items-end">
-            <img
-              src="/profile.png"
-              alt="William Hernandez"
-              className="w-full h-full lg:w-auto lg:h-[70vh] max-w-none object-contain object-bottom drop-shadow-[0_20px_50px_rgba(255,255,255,0.15)] opacity-90 transition-opacity duration-700"
-              style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' }}
-              onLoad={(e) => e.target.style.opacity = '1'}
-            />
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto w-full relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-        {/* Right Column: About Box */}
-        <div className="lg:col-span-4 flex justify-center lg:justify-end">
-          <div className="bg-surface/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-sm shadow-2xl relative overflow-hidden group hover:border-white/20 transition-colors">
-            {/* Inner top glow */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
-
-            <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
-              Ambitious, enthusiastic, well-rounded.
-            </h3>
-            <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
-              I am a software engineering student who builds secure, intelligent systems with a focus on cybersecurity, AI, and deep learning. I enjoy turning complex problems into clean, scalable solutions.
+          {/* Left Column: Title */}
+          <div className="lg:col-span-6 flex flex-col justify-center text-center lg:text-left">
+            <p className="font-sans text-secondary text-lg mb-2 animate-fade-in">William Hernandez</p>
+            <h1 className="font-sans font-bold text-5xl md:text-7xl xl:text-8xl leading-[1.1] tracking-tight mb-6 text-white drop-shadow-2xl">
+              Software<br className="hidden md:block" /> Engineer
+            </h1>
+            <p className="font-sans text-secondary text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed">
+              Second year student studying a <span className="text-white font-semibold">Bachelor of Engineering<br className="hidden sm:block" /> with Honours in Software</span> at the University of Waikato.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#projects" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-background text-sm font-bold hover:bg-white/90 hover:scale-105 transition-all active:scale-95 shadow-lg shadow-white/10">
+                VIEW MY PROJECTS
+              </a>
+              <a href="/public/william_hernandez_cv.pdf" download className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-bold hover:bg-white/10 transition-all active:scale-95">
+                <Download size={18} />
+                DOWNLOAD MY CV
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: About Box */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end">
+            <div className="bg-surface/30 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-sm shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all">
+              {/* Inner top glow */}
+              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
+
+              <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
+                Ambitious, enthusiastic, well-rounded.
+              </h3>
+              <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
+                I am a software engineering student who builds secure, intelligent systems with a focus on cybersecurity, AI, and deep learning. I enjoy turning complex problems into clean, scalable solutions.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 const projectData = [
@@ -170,44 +174,56 @@ const projectData = [
     role: "Co-Developer",
     description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
     tags: ["GDScript", "3D Modelling", "Texturing"],
-    image: "https://images.unsplash.com/photo-1614031679004-9efc86b2fa98?q=80&w=600&auto=format&fit=crop"
+    image: "src/assets/thehollowmasquerade.jpg"
   },
   {
-    title: "VioTrace Systems",
+    title: "SaveYourFood",
     role: "Solo Developer",
-    description: "A professional security dashboard that provides log monitoring, CISA/IP forensic vulnerability scanning, and AI-driven threat detection.",
-    tags: ["Python", "FastAPI", "vue.js", "OWASP Top 10", "RESTful API", "asyncio", "HTML", "CSS"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+    description: "Find recipes with ingredients you have on hand!",
+    tags: ["Mocha"],
+    image: "src/assets/SaveYourFood.png"
   },
   {
-    title: "VioTrace Systems",
+    title: "LabDemo",
     role: "Solo Developer",
-    description: "A professional security dashboard that provides log monitoring, CISA/IP forensic vulnerability scanning, and AI-driven threat detection.",
-    tags: ["Python", "FastAPI", "vue.js", "OWASP Top 10", "RESTful API", "asyncio", "HTML", "CSS"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+    description: "Learn to debug, not to copy. LabDemo helps you understand errors in the terminal and gives you tips on how to solve them, rather than directly giving you the solution.",
+    tags: ["Typescript", "React.js", "Lucide", "Tailwind CSS", "Shadcn/ui", "eslint"],
+    image: "src/assets/LabDemo.png"
+  },
+  {
+    title: "Citilyze",
+    role: "Solo Developer",
+    description: "Gives cities a real-time 'governance health score' and predicts risks before they become crises.",
+    tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
+    image: "src/assets/Citilyze.png"
   }
 ];
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, style }) {
   return (
-    <div className="group min-w-[300px] md:min-w-[380px] w-[300px] md:w-[380px] bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:border-white/30 hover:bg-white/[0.08] hover:-translate-y-2 snap-center">
-      <div className="h-48 md:h-56 w-full bg-black/40 relative overflow-hidden">
+    <div
+      className="group bg-[#0a0a0f] border border-[#2a2a35] hover:border-white/30 rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 cursor-pointer relative"
+      style={style}
+    >
+      <div className="h-36 md:h-44 w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-90" />
       </div>
-      <div className="p-6 md:p-8 flex flex-col flex-1">
-        <h4 className="font-sans font-bold text-white text-xl md:text-2xl mb-1 group-hover:text-accent transition-colors">{project.title}</h4>
-        <p className="font-sans font-medium text-xs text-secondary/60 mb-4">{project.role}</p>
-        <p className="font-sans text-sm text-secondary leading-relaxed mb-6 line-clamp-4 flex-1">
+      <div className="p-5 lg:p-6 flex flex-col flex-1 gap-1.5">
+        <div>
+          <h4 className="font-sans font-bold text-white text-lg md:text-xl tracking-tight leading-tight mb-0.5">{project.title}</h4>
+          <p className="font-sans italic text-xs md:text-[13px] text-white/60 mb-2">{project.role}</p>
+        </div>
+        <p className="font-sans text-xs md:text-[13px] text-white/70 leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-1.5 mt-auto">
           {project.tags.map((tag, idx) => (
-            <span key={idx} className="bg-white/5 border border-white/10 text-white/50 text-[10px] px-2.5 py-1 rounded-md font-sans group-hover:border-white/20 transition-colors">
+            <span key={idx} className="bg-white/[0.08] border border-white/10 text-white/90 text-[9px] md:text-[11px] px-2 py-1 rounded font-medium">
               {tag}
             </span>
           ))}
@@ -219,132 +235,179 @@ function ProjectCard({ project }) {
 
 function ProjectsSection() {
   const scrollContainerRef = useRef(null);
-  const extendedProjects = [...projectData, ...projectData, ...projectData];
+  const extendedProjects = [...projectData, ...projectData, ...projectData, ...projectData, ...projectData];
+  const GAP = 24;
 
-  // Adjusted for responsive card sizes
-  const getCardWidth = () => window.innerWidth < 768 ? 300 + 24 : 380 + 24;
+  const [cardWidth, setCardWidth] = React.useState(300);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) {
+        setCardWidth(w * 0.20); // ~20% of screen to fit exactly 4 in center + partial peeking on sides
+      } else if (w >= 768) {
+        setCardWidth(w * 0.40);
+      } else {
+        setCardWidth(w * 0.82);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const initScroll = useRef(false);
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (!el) return;
 
-    // Center the scroll initially
-    const setWidth = projectData.length * getCardWidth();
-    el.scrollLeft = setWidth;
+    const blockWidth = projectData.length * (cardWidth + GAP);
 
+    // Initial center on mount
+    if (!initScroll.current) {
+      el.scrollLeft = blockWidth * 2;
+      initScroll.current = true;
+    }
+
+    let isScrollingTimer;
     const handleScroll = () => {
-      if (el.scrollLeft < setWidth / 2) {
-        el.scrollLeft += setWidth;
-      } else if (el.scrollLeft >= setWidth * 1.5) {
-        el.scrollLeft -= setWidth;
-      }
+      clearTimeout(isScrollingTimer);
+      isScrollingTimer = setTimeout(() => {
+        const scrollPos = el.scrollLeft;
+        if (scrollPos < blockWidth) {
+          el.style.scrollBehavior = 'auto';
+          el.scrollLeft = scrollPos + (blockWidth * 2);
+        } else if (scrollPos > blockWidth * 3) {
+          el.style.scrollBehavior = 'auto';
+          el.scrollLeft = scrollPos - (blockWidth * 2);
+        }
+      }, 150);
     };
 
     el.addEventListener('scroll', handleScroll, { passive: true });
-    return () => el.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      clearTimeout(isScrollingTimer);
+      el.removeEventListener('scroll', handleScroll);
+    };
+  }, [cardWidth]);
 
+  const isScrolling = useRef(false);
   const scroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const cardWidth = getCardWidth();
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -cardWidth : cardWidth,
-        behavior: 'smooth'
-      });
+    if (scrollContainerRef.current && !isScrolling.current) {
+      isScrolling.current = true;
+      const el = scrollContainerRef.current;
+      const scrollAmount = cardWidth + GAP;
+      const blockWidth = projectData.length * scrollAmount;
+
+      // Handle transparent boundary jumping BEFORE we do the smooth scroll
+      if (direction === 'left' && el.scrollLeft < blockWidth) {
+        el.style.scrollBehavior = 'auto'; // Disable smooth scroll instantly
+        el.scrollLeft += blockWidth * 2; // Jump forward 2 blocks seamlessly
+        void el.offsetWidth; // Force CSS reflow so the jump happens BEFORE the next line
+      } else if (direction === 'right' && el.scrollLeft > blockWidth * 3) {
+        el.style.scrollBehavior = 'auto';
+        el.scrollLeft -= blockWidth * 2; // Jump backward 2 blocks seamlessly
+        void el.offsetWidth;
+      }
+
+      // Calculate exact rounded snap point to fix drift
+      const currentSnap = Math.round(el.scrollLeft / scrollAmount) * scrollAmount;
+      const targetPos = direction === 'left' ? currentSnap - scrollAmount : currentSnap + scrollAmount;
+
+      el.style.scrollBehavior = 'smooth';
+      el.scrollTo({ left: targetPos });
+
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 500); // Wait for smooth scroll animation to finish
     }
   };
 
   return (
-    <section id="projects" className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 overflow-hidden bg-background py-24 md:py-32">
-      <div className="max-w-[1440px] mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-16 gap-8 px-4">
-          <div className="space-y-4">
-            <h2 className="font-serif text-5xl md:text-7xl tracking-tight text-white m-0">Project Portfolio</h2>
-            <div className="w-24 h-1 bg-accent rounded-full" />
-          </div>
-          <p className="font-sans text-secondary text-base md:text-lg max-w-xl leading-relaxed m-0 opacity-80">
-            A selection of software engineering projects demonstrating my <span className="text-white font-medium italic">technical capabilities</span>, problem-solving approach, and growing expertise in cybersecurity and AI.
+    <section id="projects" className="relative flex flex-col justify-center overflow-hidden bg-background py-24 md:py-32">
+      <div className="max-w-[1600px] mx-auto w-full px-6 md:px-12 lg:px-16 mb-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <h2 className="font-serif text-5xl md:text-6xl text-white tracking-tight whitespace-nowrap m-0 shrink-0 text-center lg:text-left">
+            Project Portfolio
+          </h2>
+          <div className="hidden lg:block w-[1px] h-20 bg-white/20 shrink-0" />
+          <p className="font-sans text-secondary text-base lg:text-lg leading-relaxed m-0 text-center lg:text-left max-w-2xl">
+            This portfolio highlights a selection of software engineering projects that demonstrate my technical capabilities, problem-solving approach, and growing expertise in cybersecurity, artificial intelligence, and scalable system design
           </p>
         </div>
+      </div>
 
-        <div className="relative w-full group">
-          {/* Navigation Buttons - Hidden on small mobile */}
-          <button
-            onClick={() => scroll('left')}
-            className="hidden md:flex absolute -left-4 lg:-left-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full border border-white/10 bg-background/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-xl"
-            aria-label="Scroll Left"
-          >
-            <ArrowLeft size={24} />
-          </button>
+      <div className="relative w-full group">
+        <button
+          onClick={() => scroll('left')}
+          className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-[60%] z-30 w-16 h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
+          aria-label="Scroll Left"
+        >
+          <ArrowLeft size={30} />
+        </button>
 
-          <button
-            onClick={() => scroll('right')}
-            className="hidden md:flex absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full border border-white/10 bg-background/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-xl"
-            aria-label="Scroll Right"
-          >
-            <ArrowRight size={24} />
-          </button>
+        <button
+          onClick={() => scroll('right')}
+          className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-[60%] z-30 w-16 h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
+          aria-label="Scroll Right"
+        >
+          <ArrowRight size={30} />
+        </button>
 
-          {/* Cards Container */}
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto w-full pb-12 pt-4 no-scrollbar items-stretch snap-x snap-mandatory cursor-grab active:cursor-grabbing"
-          >
-            {extendedProjects.map((proj, idx) => (
-              <ProjectCard key={idx} project={proj} />
-            ))}
-          </div>
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-6 overflow-x-auto w-full pb-12 pt-4 items-stretch px-[5%] md:px-[10%] lg:px-[6%] scroll-smooth-disabled"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {extendedProjects.map((proj, idx) => (
+            <ProjectCard key={idx} project={proj} style={{ minWidth: `${cardWidth}px`, width: `${cardWidth}px`, maxWidth: `${cardWidth}px` }} />
+          ))}
+        </div>
+      </div>
 
-          {/* Mobile Scroll Indicator */}
-          <div className="md:hidden flex justify-center gap-2 mt-4">
-            <div className="w-8 h-1 bg-white/20 rounded-full overflow-hidden">
-              <div className="w-1/2 h-full bg-accent" />
-            </div>
-          </div>
+      {/* My Creative Stack */}
+      <div className="w-full flex flex-col items-center gap-8 mt-12 md:mt-20">
+        <p className="text-secondary text-[11px] md:text-sm font-sans tracking-[0.2em] font-bold text-center opacity-70 uppercase">MY CREATIVE STACK</p>
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10 items-center px-4">
+          {[
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Visual_Studio_Mac_Icon_2022.svg/1024px-Visual_Studio_Mac_Icon_2022.svg.png",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Notion-logo.svg/1200px-Notion-logo.svg.png",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg"
+          ].map((icon, i) => (
+            <img
+              key={i}
+              src={icon}
+              alt={`Tech Icon ${i}`}
+              className="w-8 h-8 md:w-12 md:h-12 object-contain hover:scale-125 transition-all duration-300 filter grayscale hover:grayscale-0 brightness-200"
+            />
+          ))}
         </div>
       </div>
 
       <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .scroll-smooth-disabled::-webkit-scrollbar { display: none; }
+        .scroll-smooth-disabled { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
+
     </section>
   );
 }
-
-
-const stackIcons = [
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg"
-];
-
 
 
 function AboutSection() {
   return (
     <section id="about" className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-16 py-24 md:py-32 overflow-hidden bg-background">
       <div className="max-w-6xl mx-auto w-full flex flex-col gap-16 md:gap-24">
-
-        {/* Tech Stack Banner */}
-        <div className="w-full flex flex-col items-center gap-8">
-          <p className="text-secondary text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase font-bold text-center opacity-60">My Creative Stack</p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 items-center">
-            {stackIcons.map((icon, i) => (
-              <img
-                key={i}
-                src={icon}
-                alt={`Tech Icon ${i}`}
-                className="w-8 h-8 md:w-10 md:h-10 object-contain hover:scale-125 transition-all duration-300 filter grayscale hover:grayscale-0 brightness-150"
-              />
-            ))}
-          </div>
-        </div>
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
