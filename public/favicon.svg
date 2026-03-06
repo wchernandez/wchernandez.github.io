@@ -1,9 +1,0 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="12" fill="#0D0D0D"/>
-  
-  <text x="16" y="24" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="20" fill="#C5A059">W</text>
-  
-  <text x="32" y="40" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="20" fill="#E5C789">C</text>
-  
-  <text x="48" y="56" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="20" fill="#C5A059">H</text>
-</svg>
