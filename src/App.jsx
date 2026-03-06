@@ -168,11 +168,11 @@ function Hero() {
         <img
           src="/profile.png"
           alt="William Hernandez"
-          className="w-auto h-[90vh] max-w-none object-contain object-bottom opacity-30"
+          className="w-auto h-[75vh] max-w-none object-contain object-bottom opacity-30"
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
             maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-            transform: 'translateX(6vw) translateY(8vh)',
+            transform: 'translateX(6vw) translateY(13vh)',
           }}
         />
       </div>
