@@ -208,18 +208,18 @@ function ProjectCard({ project, style }) {
 
   const tierStyles = {
     gold: {
-      border: "border-[#FFD700]/40",
-      hoverBorder: "hover:border-[#FFD700]/80",
-      bg: "bg-[#FFD700]/10",
-      star: "#FFD700",
-      glow: "shadow-[0_0_25px_rgba(255,215,0,0.25)]"
+      border: "border-[#FFC300]/40",
+      hoverBorder: "hover:border-[#FFC300]/80",
+      bg: "bg-[#FFC300]/10",
+      star: "#FFC300",
+      glow: "shadow-[0_0_25px_rgba(255,195,0,0.25)]"
     },
     silver: {
-      border: "border-[#E2E8F0]/50",
-      hoverBorder: "hover:border-[#E2E8F0]/90",
-      bg: "bg-[#E2E8F0]/15",
-      star: "#F8FAFC",
-      glow: "shadow-[0_0_25px_rgba(248,250,252,0.3)]"
+      border: "border-[#94A3B8]/40",
+      hoverBorder: "hover:border-[#94A3B8]/80",
+      bg: "bg-[#94A3B8]/10",
+      star: "#94A3B8",
+      glow: "shadow-[0_0_25px_rgba(148,163,184,0.2)]"
     },
     bronze: {
       border: "border-[#CD7F32]/40",
@@ -273,7 +273,7 @@ function ProjectCard({ project, style }) {
       <div className="p-5 lg:p-6 flex flex-col flex-1 gap-1.5 relative">
         <div className="flex justify-between items-start gap-2">
           <div className="flex-1">
-            <h4 className="group/title font-sans font-bold text-white text-lg md:text-xl tracking-tight leading-tight mb-0.5 hover:text-accent transition-colors flex items-center gap-2 w-fit">
+            <h4 className="group/title font-sans font-bold text-white text-lg tracking-tight leading-tight mb-0.5 hover:text-accent transition-colors flex items-center gap-2 w-fit">
               {project.tier && <Star size={16} fill={currentTier.star} color={currentTier.star} className="shrink-0" />}
               {project.title}
               {project.link && <ExternalLink size={14} className="text-white/50 group-hover/title:text-accent transition-colors" />}
