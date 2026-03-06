@@ -16,8 +16,8 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex flex-col">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-            <div className="w-4 h-4 rounded-full border-2 border-background" />
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-background">
+            <Github size={18} fill="currentColor" />
           </div>
           <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
         </div>
@@ -593,8 +593,8 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <div className="w-4 h-4 rounded-full border-2 border-background" />
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-background">
+              <Github size={18} fill="currentColor" />
             </div>
             <span className="font-sans font-bold text-lg tracking-tight text-white uppercase">wchernandez</span>
           </div>
