@@ -21,75 +21,77 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-6 md:px-12 lg:px-16 py-4 md:py-6 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-      {/* Logo */}
-      <div className="flex flex-col">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
-              alt="Logo"
-              className="w-full h-full object-contain invert"
-            />
+    <>
+      <nav className="fixed top-0 w-full z-50 px-6 md:px-12 lg:px-16 py-4 md:py-6 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        {/* Logo */}
+        <div className="flex flex-col">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
+                alt="Logo"
+                className="w-full h-full object-contain invert"
+              />
+            </div>
+            <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
           </div>
-          <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
-        </div>
-        <a
-          href="https://github.com/wchernandez"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[10px] text-secondary mt-1 ml-11 hover:text-white transition-colors flex items-center gap-1"
-        >
-          <ArrowUpRight size={10} /> Visit my GitHub!
-        </a>
-      </div>
-
-      {/* Desktop Links */}
-      <div className="hidden md:flex gap-4 items-center">
-        {['Home', 'About', 'Projects'].map((item) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="px-4 py-2 rounded-lg text-sm font-medium text-secondary hover:text-white hover:bg-white/5 transition-all"
+            href="https://github.com/wchernandez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] text-secondary mt-1 ml-11 hover:text-white transition-colors flex items-center gap-1"
           >
-            {item}
+            <ArrowUpRight size={10} /> Visit my GitHub!
           </a>
-        ))}
-        <a
-          href="#contact"
-          className="ml-4 px-6 py-2 rounded-full bg-white text-background text-sm font-bold hover:bg-gray-200 transition-all active:scale-95"
-        >
-          Contact
-        </a>
-      </div>
-
-      {/* Mobile Menu Toggle */}
-      <button
-        className="md:hidden relative z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white transition-all active:scale-90"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        aria-label="Toggle Menu"
-      >
-        <div className="relative w-6 h-6">
-          <span className={utils_cn(
-            "absolute block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
-            isMenuOpen ? "rotate-45 top-3" : "top-1.5"
-          )} />
-          <span className={utils_cn(
-            "absolute block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out top-3",
-            isMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
-          )} />
-          <span className={utils_cn(
-            "absolute block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
-            isMenuOpen ? "-rotate-45 top-3" : "top-4.5"
-          )} />
         </div>
-      </button>
 
-      {/* Mobile Menu Overlay */}
-      <div className={utils_cn(
-        "fixed inset-0 bg-black z-50 md:hidden flex flex-col p-8 transition-all duration-500 ease-in-out",
-        isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      )}>
+        {/* Desktop Links */}
+        <div className="hidden md:flex gap-4 items-center">
+          {['Home', 'About', 'Projects'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="px-4 py-2 rounded-lg text-sm font-medium text-secondary hover:text-white hover:bg-white/5 transition-all"
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="ml-4 px-6 py-2 rounded-full bg-white text-background text-sm font-bold hover:bg-gray-200 transition-all active:scale-95"
+          >
+            Contact
+          </a>
+        </div>
+
+        {/* Mobile Menu Toggle - only shows hamburger, X is inside overlay */}
+        <button
+          className="md:hidden relative z-[110] flex items-center justify-center text-white transition-all active:scale-90"
+          onClick={() => setIsMenuOpen(true)}
+          aria-label="Open Menu"
+        >
+          <Menu size={28} strokeWidth={1.5} />
+        </button>
+      </nav>
+
+      {/* Mobile Menu Overlay — rendered outside nav to avoid z-index stacking context issues */}
+      <div
+        className={utils_cn(
+          "fixed inset-0 md:hidden flex flex-col p-8 transition-all duration-500 ease-in-out",
+          "z-[100]",
+          isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        )}
+        style={{ backgroundColor: '#000000' }}
+      >
+        {/* X button matches exact nav button position: py-4 px-6 from the top-right */}
+        <button
+          className="absolute top-4 right-6 flex items-center justify-center text-white transition-all active:scale-90"
+          onClick={() => setIsMenuOpen(false)}
+          aria-label="Close Menu"
+        >
+          <X size={28} strokeWidth={1.5} />
+        </button>
+
         <div className="mt-24 flex flex-col gap-2">
           <p className="text-secondary text-[10px] font-black tracking-[0.3em] uppercase mb-4 opacity-50">NAVIGATION</p>
           {['Home', 'About', 'Projects'].map((item, idx) => (
@@ -99,7 +101,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               style={{ transitionDelay: `${idx * 100}ms` }}
               className={utils_cn(
-                "text-5xl font-serif font-black text-white hover:text-accent transition-all duration-500 hover:translate-x-4",
+                "text-4xl font-serif font-black text-white hover:text-accent transition-all duration-500 hover:translate-x-2",
                 isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               )}
             >
@@ -111,7 +113,7 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
             style={{ transitionDelay: '300ms' }}
             className={utils_cn(
-              "mt-8 text-5xl font-serif font-black italic text-accent hover:text-white transition-all duration-500 hover:translate-x-4",
+              "mt-2 text-4xl font-serif font-black italic text-accent hover:text-white transition-all duration-500 hover:translate-x-2",
               isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
@@ -137,7 +139,7 @@ const Navbar = () => {
           <p className="text-[10px] text-secondary/40 font-sans tracking-widest uppercase">© 2026 William Hernandez</p>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 
@@ -148,9 +150,8 @@ function Hero() {
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] hero-glow rounded-full pointer-events-none" />
 
-      {/* Centered Headshot image - Hidden on mobile/tablet, visible only from lg breakpoint (1024px+) */}
+      {/* Desktop Headshot — lg+ only */}
       <div className="hidden lg:flex absolute inset-x-0 bottom-[-6vh] top-0 items-end justify-center z-0 pointer-events-none overflow-hidden select-none">
-
         <img
           src="/profile.png"
           alt="William Hernandez"
@@ -158,6 +159,20 @@ function Hero() {
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)',
             maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)'
+          }}
+        />
+      </div>
+
+      {/* Mobile Headshot — visible below lg, 30% opacity, behind all content */}
+      <div className="lg:hidden absolute inset-x-0 bottom-0 top-0 flex items-end justify-center z-0 pointer-events-none overflow-hidden select-none">
+        <img
+          src="/profile.png"
+          alt="William Hernandez"
+          className="w-auto h-[90vh] max-w-none object-contain object-bottom opacity-30"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            transform: 'translateX(6vw) translateY(8vh)',
           }}
         />
       </div>
@@ -188,18 +203,20 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right Column: About Box */}
+          {/* Right Column: About Box with mobile image peek */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="bg-surface/30 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-md shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all">
-              {/* Inner top glow */}
-              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
+            <div className="relative w-full max-w-md">
+              <div className="bg-surface/30 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-md shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all">
+                {/* Inner top glow */}
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
 
-              <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
-                Ambitious, enthusiastic, well-rounded.
-              </h3>
-              <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
-                I am a software engineering student who builds secure, intelligent systems with a focus on cybersecurity, AI, and deep learning. I enjoy turning complex problems into clean, scalable solutions.
-              </p>
+                <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
+                  Ambitious, enthusiastic, well-rounded.
+                </h3>
+                <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
+                  I am a software engineering student who builds secure, intelligent systems with a focus on cybersecurity, AI, and deep learning. I enjoy turning complex problems into clean, scalable solutions.
+                </p>
+              </div>
             </div>
           </div>
         </div>
