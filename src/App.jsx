@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { ArrowUpRight, ArrowLeft, ArrowRight, Download, Menu, X } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, ArrowRight, Download, Menu, X, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
 
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -163,60 +163,84 @@ function Hero() {
 
 const projectData = [
   {
-    title: "VioTrace Systems",
-    role: "Solo Developer",
-    description: "A professional security dashboard that provides log monitoring, CISA/IP forensic vulnerability scanning, and AI-driven threat detection.\n\nCreated as a personal passion project.",
-    tags: ["Python", "FastAPI", "vue.js", "OWASP Top 10", "RESTful API", "asyncio", "HTML", "CSS"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    title: "The Hollow Masquerade",
-    role: "Co-Developer",
-    description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
-    tags: ["GDScript", "3D Modelling", "Texturing"],
-    image: "src/assets/thehollowmasquerade.jpg"
-  },
-  {
-    title: "SaveYourFood",
-    role: "Solo Developer",
-    description: "Find recipes with ingredients you have on hand!",
-    tags: ["Mocha"],
-    image: "src/assets/SaveYourFood.png"
-  },
-  {
     title: "LabDemo",
     role: "Solo Developer",
     description: "Learn to debug, not to copy. LabDemo helps you understand errors in the terminal and gives you tips on how to solve them, rather than directly giving you the solution.",
     tags: ["Typescript", "React.js", "Lucide", "Tailwind CSS", "Shadcn/ui", "eslint"],
-    image: "src/assets/LabDemo.png"
+    image: "src/assets/LabDemo.png",
+    link: "https://labdemoai.vercel.app"
   },
   {
     title: "Citilyze",
     role: "Solo Developer",
     description: "Gives cities a real-time 'governance health score' and predicts risks before they become crises.",
     tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
-    image: "src/assets/Citilyze.png"
-  }
+    image: "src/assets/Citilyze.png",
+    link: "https://citilyze.vercel.app"
+  },
+  {
+    title: "The Hollow Masquerade",
+    role: "Co-Developer",
+    description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
+    tags: ["GDScript", "3D Modelling", "Texturing"],
+    image: "src/assets/thehollowmasquerade.jpg",
+    link: "https://willhaven.itch.io/the-hollow-masquerade"
+  },
+  {
+    title: "SaveYourFood",
+    role: "Solo Developer",
+    description: "Find recipes with ingredients you have on hand!",
+    tags: ["Mocha"],
+    image: "src/assets/SaveYourFood.png",
+    link: "https://luqkciwzpyawq.mocha.app/"
+  },
+  {
+    title: "VioTrace Systems",
+    role: "Solo Developer",
+    description: "A professional security dashboard that provides log monitoring, CISA/IP forensic vulnerability scanning, and AI-driven threat detection.\n\nCreated as a personal passion project.",
+    tags: ["Python", "FastAPI", "vue.js", "OWASP Top 10", "RESTful API", "asyncio", "HTML", "CSS"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+  },
+
 ];
 
 function ProjectCard({ project, style }) {
+  const CardWrapper = project.link ? 'a' : 'div';
+
   return (
-    <div
-      className="group bg-[#0a0a0f] border border-[#2a2a35] hover:border-white/30 rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 cursor-pointer relative"
-      style={style}
+    <CardWrapper
+      href={project.link}
+      target={project.link ? "_blank" : undefined}
+      rel={project.link ? "noopener noreferrer" : undefined}
+      className={`group/card bg-[#0a0a0f] border border-[#2a2a35] hover:border-white/30 rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative ${project.link ? 'cursor-pointer' : ''}`}
+      style={{ ...style, display: 'flex' }}
     >
       <div className="h-36 md:h-44 w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+          className="w-full h-full object-cover opacity-80 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-90" />
+
+        {/* Hover overlay for links */}
+        {project.link && (
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 backdrop-blur-[2px]">
+            <span className="font-sans font-bold text-white text-[11px] tracking-widest uppercase flex items-center gap-2 bg-black/60 px-4 py-2 rounded-full border border-white/20 shadow-xl hover:scale-110 hover:bg-black/80 transition-all duration-300">
+              View Project <ExternalLink size={14} />
+            </span>
+          </div>
+        )}
       </div>
-      <div className="p-5 lg:p-6 flex flex-col flex-1 gap-1.5">
-        <div>
-          <h4 className="font-sans font-bold text-white text-lg md:text-xl tracking-tight leading-tight mb-0.5">{project.title}</h4>
-          <p className="font-sans italic text-xs md:text-[13px] text-white/60 mb-2">{project.role}</p>
+      <div className="p-5 lg:p-6 flex flex-col flex-1 gap-1.5 relative">
+        <div className="flex justify-between items-start gap-2">
+          <div className="flex-1">
+            <h4 className="group/title font-sans font-bold text-white text-lg md:text-xl tracking-tight leading-tight mb-0.5 hover:text-accent transition-colors flex items-center gap-2 w-fit">
+              {project.title}
+              {project.link && <ExternalLink size={14} className="text-white/50 group-hover/title:text-accent transition-colors" />}
+            </h4>
+            <p className="font-sans italic text-xs md:text-[13px] text-white/60 mb-2">{project.role}</p>
+          </div>
         </div>
         <p className="font-sans text-xs md:text-[13px] text-white/70 leading-relaxed mb-4 flex-1">
           {project.description}
@@ -229,7 +253,7 @@ function ProjectCard({ project, style }) {
           ))}
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }
 
@@ -405,6 +429,38 @@ function ProjectsSection() {
 
 
 function AboutSection() {
+  const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = React.useState('idle'); // idle, loading, success, error
+
+  const handleInputChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        // Reset success message after 15 seconds
+        setTimeout(() => setStatus('idle'), 15000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="about" className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-16 py-24 md:py-32 overflow-hidden bg-background">
       <div className="max-w-6xl mx-auto w-full flex flex-col gap-16 md:gap-24">
@@ -457,41 +513,72 @@ function AboutSection() {
               I'm always open to new opportunities, collaborations, or just a chat about technology.
             </p>
 
-            <form className="space-y-4 mb-10">
+            <form onSubmit={handleSubmit} className="space-y-4 mb-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
                   placeholder="Name"
                   className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-xl font-sans text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:bg-white/10 transition-all placeholder:text-white/20"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
                   placeholder="Email"
                   className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-xl font-sans text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:bg-white/10 transition-all placeholder:text-white/20"
                 />
               </div>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
                 placeholder="Message"
                 rows={4}
                 className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-xl font-sans text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:bg-white/10 transition-all placeholder:text-white/20 resize-none"
               ></textarea>
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-white text-background font-bold text-sm hover:bg-gray-200 transition-all active:scale-95 shadow-xl shadow-white/5 flex items-center justify-center gap-2"
+                disabled={status === 'loading'}
+                className="w-full py-4 rounded-xl bg-white text-background font-bold text-sm hover:bg-gray-200 transition-all active:scale-95 shadow-xl shadow-white/5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message <ArrowUpRight size={18} />
+                {status === 'loading' ? 'Sending...' : 'Send Message'}
+                {status !== 'loading' && <ArrowUpRight size={18} />}
               </button>
+
+              {status === 'success' && (
+                <p className="text-green-400 font-sans text-sm text-center font-medium mt-4">
+                  Success! Your message has been sent.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-400 font-sans text-sm text-center font-medium mt-4">
+                  Sorry, something went wrong. Please try again.
+                </p>
+              )}
             </form>
 
             <div className="flex flex-wrap gap-6 pt-6 border-t border-white/5">
               <a href="https://github.com/wchernandez" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-secondary hover:text-white transition-all text-xs font-sans group">
-                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">🐙</span> wchernandez
+                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">
+                  <Github size={14} />
+                </span> wchernandez
               </a>
               <a href="https://linkedin.com/in/wchernandez" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-secondary hover:text-white transition-all text-xs font-sans group">
-                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">💼</span> wchernandez
+                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">
+                  <Linkedin size={14} />
+                </span> wchernandez
               </a>
               <a href="mailto:wchernandez2006@gmail.com" className="flex items-center gap-2 text-secondary hover:text-white transition-all text-xs font-sans group">
-                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">✉️</span> Email Me
+                <span className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-lg group-hover:bg-accent group-hover:text-white transition-all">
+                  <Mail size={14} />
+                </span> Email Me
               </a>
             </div>
           </div>
