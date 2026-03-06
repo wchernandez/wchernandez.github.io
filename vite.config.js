@@ -8,7 +8,13 @@ export default defineConfig({
   server: {
     allowedHosts: [
       'realizing-tianna-lollingly.ngrok-free.dev'
-    ]
-  }
+    ],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
 })
 

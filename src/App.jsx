@@ -391,7 +391,18 @@ function ProjectsSection() {
     // Initial center on mount - wait for layout
     if (!initScroll.current) {
       requestAnimationFrame(() => {
-        el.scrollLeft = blockWidth * 2;
+        const itemWidth = cardWidth + GAP;
+        const viewportWidth = el.offsetWidth;
+        
+        // Target index for mobile: Gold (index 0)
+        // Target index for desktop: Silver (index 1) to center the group Gold, Silver, Bronze
+        const targetIndex = window.innerWidth < 768 ? 0 : 1;
+        
+        // Calculate the scroll position to center the targetIndex item
+        const centerPos = (targetIndex * itemWidth) + (cardWidth / 2);
+        const scrollTarget = (blockWidth * 2) + centerPos - (viewportWidth / 2);
+        
+        el.scrollLeft = scrollTarget;
         initScroll.current = true;
       });
     }
@@ -549,7 +560,7 @@ function AboutSection() {
     setStatus('loading');
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
