@@ -403,18 +403,18 @@ function ProjectsSection() {
       <div className="relative w-full group">
         <button
           onClick={() => scroll('left')}
-          className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-[60%] z-30 w-16 h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
+          className="flex absolute left-2 md:left-4 lg:left-8 top-1/2 -translate-y-[60%] z-30 w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
           aria-label="Scroll Left"
         >
-          <ArrowLeft size={30} />
+          <ArrowLeft className="w-5 h-5 md:w-8 md:h-8" />
         </button>
 
         <button
           onClick={() => scroll('right')}
-          className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-[60%] z-30 w-16 h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
+          className="flex absolute right-2 md:right-4 lg:right-8 top-1/2 -translate-y-[60%] z-30 w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
           aria-label="Scroll Right"
         >
-          <ArrowRight size={30} />
+          <ArrowRight className="w-5 h-5 md:w-8 md:h-8" />
         </button>
 
         <div
