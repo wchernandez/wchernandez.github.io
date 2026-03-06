@@ -20,7 +20,7 @@ const Navbar = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
               alt="Logo"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain invert"
             />
           </div>
           <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
@@ -601,7 +601,7 @@ function Footer() {
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
                 alt="Logo"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain invert"
               />
             </div>
             <span className="font-sans font-bold text-lg tracking-tight text-white uppercase">wchernandez</span>
