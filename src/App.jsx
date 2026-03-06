@@ -23,41 +23,41 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 px-6 md:px-12 lg:px-16 py-4 md:py-6 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
       {/* Logo */}
-      <div className="flex flex-col relative z-20">
+      <div className="flex flex-col">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 flex items-center justify-center overflow-hidden bg-white/5 rounded-lg border border-white/10 p-1.5">
+          <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
               alt="Logo"
               className="w-full h-full object-contain invert"
             />
           </div>
-          <span className="font-sans font-bold text-lg tracking-tight text-white uppercase select-none">wchernandez</span>
+          <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
         </div>
         <a
           href="https://github.com/wchernandez"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] text-secondary mt-1 ml-11 hover:text-accent transition-colors flex items-center gap-1 group whitespace-nowrap"
+          className="text-[10px] text-secondary mt-1 ml-11 hover:text-white transition-colors flex items-center gap-1"
         >
-          <ArrowUpRight size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" /> Visit my GitHub!
+          <ArrowUpRight size={10} /> Visit my GitHub!
         </a>
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex gap-1 items-center bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-sm">
+      <div className="hidden md:flex gap-4 items-center">
         {['Home', 'About', 'Projects'].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
-            className="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-secondary hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="px-4 py-2 rounded-lg text-sm font-medium text-secondary hover:text-white hover:bg-white/5 transition-all"
           >
             {item}
           </a>
         ))}
         <a
           href="#contact"
-          className="px-6 py-2 rounded-full bg-white text-background text-xs font-black uppercase tracking-widest hover:bg-zinc-200 transition-all active:scale-95 shadow-lg shadow-white/10"
+          className="ml-4 px-6 py-2 rounded-full bg-white text-background text-sm font-bold hover:bg-gray-200 transition-all active:scale-95"
         >
           Contact
         </a>
