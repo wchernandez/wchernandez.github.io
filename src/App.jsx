@@ -253,7 +253,7 @@ function ProjectCard({ project, style }) {
       )}
       style={{ ...style, display: 'flex' }}
     >
-      <div className="h-36 md:h-44 w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
+      <div className="aspect-video w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
         <img
           src={project.image}
           alt={project.title}
