@@ -404,7 +404,7 @@ function ProjectsSection() {
               key={i}
               src={icon}
               alt={`Tech Icon ${i}`}
-              className="w-8 h-8 md:w-12 md:h-12 object-contain hover:scale-125 transition-all duration-300 filter grayscale hover:grayscale-0 opacity-60 hover:opacity-100"
+              className="w-8 h-8 md:w-12 md:h-12 object-contain hover:scale-125 transition-all duration-300"
             />
           ))}
         </div>
