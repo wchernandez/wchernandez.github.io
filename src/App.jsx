@@ -87,7 +87,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={utils_cn(
-        "fixed inset-0 bg-background/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-8 transition-all duration-500 ease-in-out",
+        "fixed inset-0 bg-black z-50 md:hidden flex flex-col p-8 transition-all duration-500 ease-in-out",
         isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       )}>
         <div className="mt-24 flex flex-col gap-2">
