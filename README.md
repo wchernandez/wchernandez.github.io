@@ -7,7 +7,7 @@
 
 A high-fidelity, cinematic portfolio built with **React**, **Vite**, and **Tailwind CSS**. This project showcases my journey as a Software Engineering student at the University of Waikato, focusing on cybersecurity, AI, and scalable system design.
 
-🌐 **Live Demo:** [wchernandez.github.io](https://wchernandez.github.io) (or your Vercel URL)
+🌐 **Live Demo:** [wchernandez.github.io](https://wchernandez.xyz)
 
 ---
 
