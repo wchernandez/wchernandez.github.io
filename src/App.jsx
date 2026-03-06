@@ -208,25 +208,25 @@ function ProjectCard({ project, style }) {
 
   const tierStyles = {
     gold: {
-      border: "border-[#FFD700]/30",
-      hoverBorder: "hover:border-[#FFD700]/60",
-      bg: "bg-[#FFD700]/5",
+      border: "border-[#FFD700]/40",
+      hoverBorder: "hover:border-[#FFD700]/80",
+      bg: "bg-[#FFD700]/10",
       star: "#FFD700",
-      glow: "shadow-[0_0_20px_rgba(255,215,0,0.15)]"
+      glow: "shadow-[0_0_25px_rgba(255,215,0,0.25)]"
     },
     silver: {
-      border: "border-[#C0C0C0]/30",
-      hoverBorder: "hover:border-[#C0C0C0]/60",
-      bg: "bg-[#C0C0C0]/5",
-      star: "#C0C0C0",
-      glow: "shadow-[0_0_20px_rgba(192,192,192,0.15)]"
+      border: "border-[#E2E8F0]/50",
+      hoverBorder: "hover:border-[#E2E8F0]/90",
+      bg: "bg-[#E2E8F0]/15",
+      star: "#F8FAFC",
+      glow: "shadow-[0_0_25px_rgba(248,250,252,0.3)]"
     },
     bronze: {
-      border: "border-[#CD7F32]/30",
-      hoverBorder: "hover:border-[#CD7F32]/60",
-      bg: "bg-[#CD7F32]/5",
+      border: "border-[#CD7F32]/40",
+      hoverBorder: "hover:border-[#CD7F32]/80",
+      bg: "bg-[#CD7F32]/10",
       star: "#CD7F32",
-      glow: "shadow-[0_0_20px_rgba(205,127,50,0.15)]"
+      glow: "shadow-[0_0_25px_rgba(205,127,50,0.2)]"
     }
   };
 
