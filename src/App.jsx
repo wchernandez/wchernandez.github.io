@@ -389,15 +389,15 @@ function ProjectsSection() {
         <p className="text-secondary text-[11px] md:text-sm font-sans tracking-[0.2em] font-bold text-center opacity-70 uppercase">MY CREATIVE STACK</p>
         <div className="flex flex-wrap justify-center gap-6 md:gap-10 items-center px-4">
           {[
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Visual_Studio_Mac_Icon_2022.svg/1024px-Visual_Studio_Mac_Icon_2022.svg.png",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Visual_Studio_Icon_2026.svg/960px-Visual_Studio_Icon_2026.svg.png?_=20251118115713",
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
-            "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Notion-logo.svg/1200px-Notion-logo.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/5/57/Roblox_Studio_Logo_2021.svg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/960px-Notion-logo.svg.png?_=20220918151013",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/e/ee/Roblox_Studio_icon_2025.svg",
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg"
           ].map((icon, i) => (
             <img
