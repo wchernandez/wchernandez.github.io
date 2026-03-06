@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { ArrowUpRight, ArrowLeft, ArrowRight, Download, Menu, X, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, ArrowRight, Download, Menu, X, ExternalLink, Github, Linkedin, Mail, Star } from 'lucide-react';
 
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -169,6 +169,7 @@ const projectData = [
   {
     title: "LabDemo",
     role: "Solo Developer",
+    tier: "gold",
     description: "Learn to debug, not to copy. LabDemo helps you understand errors in the terminal and gives you tips on how to solve them, rather than directly giving you the solution.",
     tags: ["Typescript", "React.js", "Lucide", "Tailwind CSS", "Shadcn/ui", "eslint"],
     image: "src/assets/LabDemo.png",
@@ -177,6 +178,7 @@ const projectData = [
   {
     title: "Citilyze",
     role: "Solo Developer",
+    tier: "silver",
     description: "Gives cities a real-time 'governance health score' and predicts risks before they become crises.",
     tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
     image: "src/assets/Citilyze.png",
@@ -185,6 +187,7 @@ const projectData = [
   {
     title: "The Hollow Masquerade",
     role: "Co-Developer",
+    tier: "bronze",
     description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
     tags: ["GDScript", "3D Modelling", "Texturing"],
     image: "src/assets/thehollowmasquerade.jpg",
@@ -203,12 +206,51 @@ const projectData = [
 function ProjectCard({ project, style }) {
   const CardWrapper = project.link ? 'a' : 'div';
 
+  const tierStyles = {
+    gold: {
+      border: "border-[#FFD700]/30",
+      hoverBorder: "hover:border-[#FFD700]/60",
+      bg: "bg-[#FFD700]/5",
+      star: "#FFD700",
+      glow: "shadow-[0_0_20px_rgba(255,215,0,0.15)]"
+    },
+    silver: {
+      border: "border-[#C0C0C0]/30",
+      hoverBorder: "hover:border-[#C0C0C0]/60",
+      bg: "bg-[#C0C0C0]/5",
+      star: "#C0C0C0",
+      glow: "shadow-[0_0_20px_rgba(192,192,192,0.15)]"
+    },
+    bronze: {
+      border: "border-[#CD7F32]/30",
+      hoverBorder: "hover:border-[#CD7F32]/60",
+      bg: "bg-[#CD7F32]/5",
+      star: "#CD7F32",
+      glow: "shadow-[0_0_20px_rgba(205,127,50,0.15)]"
+    }
+  };
+
+  const currentTier = tierStyles[project.tier] || {
+    border: "border-[#2a2a35]",
+    hoverBorder: "hover:border-white/30",
+    bg: "bg-[#0a0a0f]",
+    star: null,
+    glow: ""
+  };
+
   return (
     <CardWrapper
       href={project.link}
       target={project.link ? "_blank" : undefined}
       rel={project.link ? "noopener noreferrer" : undefined}
-      className={`group/card bg-[#0a0a0f] border border-[#2a2a35] hover:border-white/30 rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative ${project.link ? 'cursor-pointer' : ''}`}
+      className={utils_cn(
+        "group/card rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative border",
+        currentTier.bg,
+        currentTier.border,
+        currentTier.hoverBorder,
+        currentTier.glow,
+        project.link ? 'cursor-pointer' : ''
+      )}
       style={{ ...style, display: 'flex' }}
     >
       <div className="h-36 md:h-44 w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
@@ -232,6 +274,7 @@ function ProjectCard({ project, style }) {
         <div className="flex justify-between items-start gap-2">
           <div className="flex-1">
             <h4 className="group/title font-sans font-bold text-white text-lg md:text-xl tracking-tight leading-tight mb-0.5 hover:text-accent transition-colors flex items-center gap-2 w-fit">
+              {project.tier && <Star size={16} fill={currentTier.star} color={currentTier.star} className="shrink-0" />}
               {project.title}
               {project.link && <ExternalLink size={14} className="text-white/50 group-hover/title:text-accent transition-colors" />}
             </h4>
