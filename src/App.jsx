@@ -16,11 +16,11 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex flex-col">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#0a0a0f] border border-white/20 flex items-center justify-center overflow-hidden">
+          <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
               alt="Logo"
-              className="w-5 h-5 invert"
+              className="w-full h-full object-contain"
             />
           </div>
           <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
@@ -597,11 +597,11 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#0a0a0f] border border-white/20 flex items-center justify-center overflow-hidden">
+            <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
                 alt="Logo"
-                className="w-5 h-5 invert"
+                className="w-full h-full object-contain"
               />
             </div>
             <span className="font-sans font-bold text-lg tracking-tight text-white uppercase">wchernandez</span>
