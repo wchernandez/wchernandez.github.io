@@ -149,7 +149,7 @@ function Hero() {
               {/* Inner top glow */}
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
 
-              <h3 className="font-serif font-semibold italic text-xl lg:text-2xl mb-4 text-white leading-tight">
+              <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
                 Ambitious, enthusiastic, well-rounded.
               </h3>
               <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
