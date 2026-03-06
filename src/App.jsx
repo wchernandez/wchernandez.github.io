@@ -307,9 +307,9 @@ function ProjectsSection() {
     const handleResize = () => {
       const w = window.innerWidth;
       if (w >= 1024) {
-        setCardWidth(w * 0.20); // ~20% of screen to fit exactly 4 in center + partial peeking on sides
+        setCardWidth(w * 0.20); 
       } else if (w >= 768) {
-        setCardWidth(w * 0.40);
+        setCardWidth(w * 0.30); // Narrower cards for iPad/tablets to fit ~3 cards
       } else {
         setCardWidth(w * 0.82);
       }
