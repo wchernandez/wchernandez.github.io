@@ -145,7 +145,7 @@ function Hero() {
 
           {/* Right Column: About Box */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="bg-surface/30 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-sm shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all">
+            <div className="bg-surface/30 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-md shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all">
               {/* Inner top glow */}
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
 
