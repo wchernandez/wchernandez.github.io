@@ -193,15 +193,7 @@ const projectData = [
     tags: ["Mocha"],
     image: "src/assets/SaveYourFood.png",
     link: "https://luqkciwzpyawq.mocha.app/"
-  },
-  {
-    title: "VioTrace Systems",
-    role: "Solo Developer",
-    description: "A professional security dashboard that provides log monitoring, CISA/IP forensic vulnerability scanning, and AI-driven threat detection.\n\nCreated as a personal passion project.",
-    tags: ["Python", "FastAPI", "vue.js", "OWASP Top 10", "RESTful API", "asyncio", "HTML", "CSS"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
-  },
-
+  }
 ];
 
 function ProjectCard({ project, style }) {
@@ -412,7 +404,7 @@ function ProjectsSection() {
               key={i}
               src={icon}
               alt={`Tech Icon ${i}`}
-              className="w-8 h-8 md:w-12 md:h-12 object-contain hover:scale-125 transition-all duration-300 filter grayscale hover:grayscale-0 brightness-200"
+              className="w-8 h-8 md:w-12 md:h-12 object-contain hover:scale-125 transition-all duration-300 filter grayscale hover:grayscale-0 opacity-60 hover:opacity-100"
             />
           ))}
         </div>
