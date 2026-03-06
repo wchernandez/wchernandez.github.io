@@ -130,7 +130,7 @@ function Hero() {
               Software<br className="hidden md:block" /> Engineer
             </h1>
             <p className="font-sans text-secondary text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Second year student studying a <span className="text-white font-semibold">Bachelor of Engineering<br className="hidden sm:block" /> with Honours in Software</span> at the University of Waikato.
+              Second year student studying a <span className="text-white font-semibold">Bachelor of Engineering with Honours in Software</span> at the University of Waikato.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href="#projects" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-background text-sm font-bold hover:bg-white/90 hover:scale-105 transition-all active:scale-95 shadow-lg shadow-white/10">
@@ -149,7 +149,7 @@ function Hero() {
               {/* Inner top glow */}
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50" />
 
-              <h3 className="font-serif font-semibold italic text-2xl lg:text-3xl mb-4 text-white leading-tight">
+              <h3 className="font-serif font-semibold italic text-xl lg:text-2xl mb-4 text-white leading-tight">
                 Ambitious, enthusiastic, well-rounded.
               </h3>
               <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
@@ -307,7 +307,7 @@ function ProjectsSection() {
     const handleResize = () => {
       const w = window.innerWidth;
       if (w >= 1024) {
-        setCardWidth(w * 0.20); 
+        setCardWidth(w * 0.20);
       } else if (w >= 768) {
         setCardWidth(w * 0.30); // Narrower cards for iPad/tablets to fit ~3 cards
       } else {
