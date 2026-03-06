@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  build: {
+    assetsInlineLimit: 0,
+    outDir: 'dist',
+  },
   server: {
     allowedHosts: [
       'realizing-tianna-lollingly.ngrok-free.dev'
