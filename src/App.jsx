@@ -244,14 +244,14 @@ function ProjectCard({ project, style }) {
       target={project.link ? "_blank" : undefined}
       rel={project.link ? "noopener noreferrer" : undefined}
       className={utils_cn(
-        "group/card rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative border",
+        "group/card rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative border snap-center h-full",
         currentTier.bg,
         currentTier.border,
         currentTier.hoverBorder,
         currentTier.glow,
         project.link ? 'cursor-pointer' : ''
       )}
-      style={{ ...style, display: 'flex' }}
+      style={{ ...style }}
     >
       <div className="aspect-video w-full bg-[#050508] relative overflow-hidden border-b border-[#2a2a35]">
         <img
@@ -401,6 +401,10 @@ function ProjectsSection() {
       </div>
 
       <div className="relative w-full group">
+        {/* Edge Vignette Overlays */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 lg:w-32 z-20 pointer-events-none bg-gradient-to-r from-background via-background/20 to-transparent hidden md:block" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 lg:w-32 z-20 pointer-events-none bg-gradient-to-l from-background via-background/20 to-transparent hidden md:block" />
+
         <button
           onClick={() => scroll('left')}
           className="flex absolute left-2 md:left-4 lg:left-8 top-1/2 -translate-y-[60%] z-30 w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/60 backdrop-blur-md items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-2xl"
@@ -419,14 +423,17 @@ function ProjectsSection() {
 
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto w-full pb-12 pt-4 items-stretch px-[5%] md:px-[10%] lg:px-[6%] scroll-smooth-disabled"
+          className="flex gap-6 overflow-x-auto w-full pb-12 pt-4 items-stretch px-[5%] md:px-[10%] lg:px-[6%] scroll-smooth-disabled snap-x snap-mandatory relative z-10"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
+            scrollPadding: '0 10%',
           }}
         >
           {extendedProjects.map((proj, idx) => (
-            <ProjectCard key={idx} project={proj} style={{ minWidth: `${cardWidth}px`, width: `${cardWidth}px`, maxWidth: `${cardWidth}px` }} />
+            <div key={idx} className="snap-center flex h-auto" style={{ minWidth: `${cardWidth}px`, width: `${cardWidth}px`, maxWidth: `${cardWidth}px` }}>
+              <ProjectCard project={proj} style={{ width: '100%' }} />
+            </div>
           ))}
         </div>
       </div>
