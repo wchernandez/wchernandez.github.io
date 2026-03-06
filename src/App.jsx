@@ -244,7 +244,7 @@ function ProjectCard({ project, style }) {
       target={project.link ? "_blank" : undefined}
       rel={project.link ? "noopener noreferrer" : undefined}
       className={utils_cn(
-        "group/card rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative border snap-center h-full",
+        "group/card rounded-xl overflow-hidden flex flex-col shrink-0 transition-all duration-500 hover:-translate-y-2 relative border snap-center h-full w-full",
         currentTier.bg,
         currentTier.border,
         currentTier.hoverBorder,
@@ -322,37 +322,37 @@ function ProjectsSection() {
   const initScroll = useRef(false);
   useEffect(() => {
     const el = scrollContainerRef.current;
-    if (!el) return;
+    if (!el || cardWidth <= 0) return;
 
     const blockWidth = projectData.length * (cardWidth + GAP);
 
-    // Initial center on mount
+    // Initial center on mount - wait for layout
     if (!initScroll.current) {
-      el.scrollLeft = blockWidth * 2;
-      initScroll.current = true;
+      requestAnimationFrame(() => {
+        el.scrollLeft = blockWidth * 2;
+        initScroll.current = true;
+      });
     }
 
-    let isScrollingTimer;
     const handleScroll = () => {
-      clearTimeout(isScrollingTimer);
-      isScrollingTimer = setTimeout(() => {
-        const scrollPos = el.scrollLeft;
-        if (scrollPos < blockWidth) {
-          el.style.scrollBehavior = 'auto';
-          el.scrollLeft = scrollPos + (blockWidth * 2);
-        } else if (scrollPos > blockWidth * 3) {
-          el.style.scrollBehavior = 'auto';
-          el.scrollLeft = scrollPos - (blockWidth * 2);
-        }
-      }, 150);
+      // Immediate jump for seamless feel. No timeout.
+      const scrollPos = el.scrollLeft;
+      
+      // If we go too far left (into the first two sets), jump forward
+      if (scrollPos < blockWidth) {
+        el.style.scrollBehavior = 'auto';
+        el.scrollLeft = scrollPos + blockWidth * 2;
+      } 
+      // If we go too far right (into the last two sets), jump backward
+      else if (scrollPos > blockWidth * 3) {
+        el.style.scrollBehavior = 'auto';
+        el.scrollLeft = scrollPos - blockWidth * 2;
+      }
     };
 
     el.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      clearTimeout(isScrollingTimer);
-      el.removeEventListener('scroll', handleScroll);
-    };
-  }, [cardWidth]);
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [cardWidth, projectData.length]);
 
   const isScrolling = useRef(false);
   const scroll = (direction) => {
