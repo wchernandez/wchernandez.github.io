@@ -1,16 +1,109 @@
-# React + Vite
+# William Hernandez | Software Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Header](https://img.shields.io/badge/Portfolio-2026-blueviolet?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 
-Currently, two official plugins are available:
+A high-fidelity, cinematic portfolio built with **React**, **Vite**, and **Tailwind CSS**. This project showcases my journey as a Software Engineering student at the University of Waikato, focusing on cybersecurity, AI, and scalable system design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **Live Demo:** [wchernandez.github.io](https://wchernandez.github.io) (or your Vercel URL)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Cinematic UI/UX:** A bespoke dark-themed design with smooth gradients, custom micro-animations, and glassmorphism.
+- **Dynamic Project Showcase:** An interactive, snap-scroll carousel highlighting key projects with tiered badges (Gold, Silver, Bronze).
+- **Responsive Navigation:** A mobile-first approach with a custom burger menu and seamless section scrolling.
+- **Integrated Contact Form:** A fully functional contact system using **Express.js** and the **Resend API**, deployed via Vercel Serverless Functions.
+- **Performance Optimized:** Built with Vite for lightning-fast HMR and minimal bundle sizes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework:** React 19 (Vite)
+- **Styling:** Tailwind CSS
+- **Animations:** Custom CSS Animations & GSAP
+- **Icons:** Lucide React & DevIcons
+
+### Backend (API)
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Email Service:** Resend API
+
+### My Creative Stack
+| Tool | Purpose |
+| :--- | :--- |
+| **VS Code / Visual Studio** | Primary IDEs |
+| **Figma / Canva** | Design & Prototyping |
+| **Blender** | 3D Modeling |
+| **Godot Engine** | Game Development |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v20 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/wchernandez/portfolio-v2.git
+   cd portfolio-v2
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and add your Resend API Key:
+   ```env
+   RESEND_API_KEY=your_re_key_here
+   ```
+
+### Running Locally
+
+To run both the frontend development server and the backend Express server:
+
+```bash
+npm run dev:all
+```
+
+- **Frontend:** [http://localhost:5173](http://localhost:5173)
+- **Backend:** [http://localhost:3001](http://localhost:3001)
+
+---
+
+## 📦 Deployment
+
+### Vercel (Recommended)
+The project is configured for Vercel with a `vercel.json` file that handles both the frontend build and the serverless functions in the `api/` directory.
+
+### GitHub Pages
+The project includes a `deploy` script for GitHub Pages:
+```bash
+npm run deploy
+```
+
+---
+
+## 👤 Author
+
+**William Hernandez**
+- **GitHub:** [@wchernandez](https://github.com/wchernandez)
+- **LinkedIn:** [William Hernandez](https://linkedin.com/in/wchernandez)
+- **Email:** wchernandez2006@gmail.com
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.

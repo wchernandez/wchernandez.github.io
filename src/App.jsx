@@ -393,15 +393,15 @@ function ProjectsSection() {
       requestAnimationFrame(() => {
         const itemWidth = cardWidth + GAP;
         const viewportWidth = el.offsetWidth;
-        
+
         // Target index for mobile: Gold (index 0)
         // Target index for desktop: Silver (index 1) to center the group Gold, Silver, Bronze
         const targetIndex = window.innerWidth < 768 ? 0 : 1;
-        
+
         // Calculate the scroll position to center the targetIndex item
         const centerPos = (targetIndex * itemWidth) + (cardWidth / 2);
         const scrollTarget = (blockWidth * 2) + centerPos - (viewportWidth / 2);
-        
+
         el.scrollLeft = scrollTarget;
         initScroll.current = true;
       });
@@ -410,12 +410,12 @@ function ProjectsSection() {
     const handleScroll = () => {
       // Immediate jump for seamless feel. No timeout.
       const scrollPos = el.scrollLeft;
-      
+
       // If we go too far left (into the first two sets), jump forward
       if (scrollPos < blockWidth) {
         el.style.scrollBehavior = 'auto';
         el.scrollLeft = scrollPos + blockWidth * 2;
-      } 
+      }
       // If we go too far right (into the last two sets), jump backward
       else if (scrollPos > blockWidth * 3) {
         el.style.scrollBehavior = 'auto';
@@ -620,7 +620,7 @@ function AboutSection() {
               {/* Programming */}
               <div className="group">
                 <h3 className="font-sans font-bold text-accent tracking-widest uppercase text-[10px] mb-2 px-3 py-1 bg-accent/10 w-fit rounded-full">Stack & Skills</h3>
-                <p className="font-sans text-secondary text-sm leading-relaxed">Python, C#, Java, Verilog, MIPS, C++, Lua</p>
+                <p className="font-sans text-secondary text-sm leading-relaxed"> C#, Python, Java, Javascript, GDScript, Lua, MATLAB, Typescript, Verilog</p>
               </div>
             </div>
           </div>
