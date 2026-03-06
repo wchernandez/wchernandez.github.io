@@ -136,7 +136,7 @@ function Hero() {
               <a href="#projects" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-background text-sm font-bold hover:bg-white/90 hover:scale-105 transition-all active:scale-95 shadow-lg shadow-white/10">
                 VIEW MY PROJECTS
               </a>
-              <a href="/public/william_hernandez_cv.pdf" download className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-bold hover:bg-white/10 transition-all active:scale-95">
+              <a href="/william_hernandez_cv.pdf" download className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-bold hover:bg-white/10 transition-all active:scale-95">
                 <Download size={18} />
                 DOWNLOAD MY CV
               </a>
@@ -172,7 +172,7 @@ const projectData = [
     tier: "gold",
     description: "Learn to debug, not to copy. LabDemo helps you understand errors in the terminal and gives you tips on how to solve them, rather than directly giving you the solution.",
     tags: ["Typescript", "React.js", "Lucide", "Tailwind CSS", "Shadcn/ui", "eslint"],
-    image: "src/assets/LabDemo.png",
+    image: "/assets/LabDemo.png",
     link: "https://labdemoai.vercel.app"
   },
   {
@@ -181,7 +181,7 @@ const projectData = [
     tier: "silver",
     description: "Gives cities a real-time 'governance health score' and predicts risks before they become crises.",
     tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
-    image: "src/assets/Citilyze.png",
+    image: "/assets/Citilyze.png",
     link: "https://citilyze.vercel.app"
   },
   {
@@ -190,7 +190,7 @@ const projectData = [
     tier: "bronze",
     description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
     tags: ["GDScript", "3D Modelling", "Texturing"],
-    image: "src/assets/thehollowmasquerade.jpg",
+    image: "/assets/thehollowmasquerade.jpg",
     link: "https://willhaven.itch.io/the-hollow-masquerade"
   },
   {
@@ -198,7 +198,7 @@ const projectData = [
     role: "Solo Developer",
     description: "Find recipes with ingredients you have on hand!",
     tags: ["Mocha"],
-    image: "src/assets/SaveYourFood.png",
+    image: "/assets/SaveYourFood.png",
     link: "https://luqkciwzpyawq.mocha.app/"
   }
 ];
