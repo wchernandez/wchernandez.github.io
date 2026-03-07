@@ -360,7 +360,7 @@ function ProjectCard({ project, style }) {
 
 function ProjectsSection() {
   const scrollContainerRef = useRef(null);
-  const extendedProjects = [...projectData, ...projectData, ...projectData, ...projectData, ...projectData];
+  const extendedProjects = [...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData, ...projectData];
   const GAP = 24;
 
   const [cardWidth, setCardWidth] = React.useState(300);
@@ -398,9 +398,9 @@ function ProjectsSection() {
         // Target index for desktop: Silver (index 1) to center the group Gold, Silver, Bronze
         const targetIndex = window.innerWidth < 768 ? 0 : 1;
 
-        // Calculate the scroll position to center the targetIndex item
+        // Calculate the scroll position to target the middle of our 12 sets (starting around set 6)
         const centerPos = (targetIndex * itemWidth) + (cardWidth / 2);
-        const scrollTarget = (blockWidth * 2) + centerPos - (viewportWidth / 2);
+        const scrollTarget = (blockWidth * 6) + centerPos - (viewportWidth / 2);
 
         el.scrollLeft = scrollTarget;
         initScroll.current = true;
@@ -408,18 +408,18 @@ function ProjectsSection() {
     }
 
     const handleScroll = () => {
-      // Immediate jump for seamless feel. No timeout.
       const scrollPos = el.scrollLeft;
 
-      // If we go too far left (into the first two sets), jump forward
-      if (scrollPos < blockWidth) {
+      // With 12 sets, we have a huge buffer.
+      // If we drift too far left (before set 4), jump forward 4 blocks
+      if (scrollPos < blockWidth * 4) {
         el.style.scrollBehavior = 'auto';
-        el.scrollLeft = scrollPos + blockWidth * 2;
+        el.scrollLeft = scrollPos + blockWidth * 4;
       }
-      // If we go too far right (into the last two sets), jump backward
-      else if (scrollPos > blockWidth * 3) {
+      // If we drift too far right (after set 8), jump backward 4 blocks
+      else if (scrollPos > blockWidth * 8) {
         el.style.scrollBehavior = 'auto';
-        el.scrollLeft = scrollPos - blockWidth * 2;
+        el.scrollLeft = scrollPos - blockWidth * 4;
       }
     };
 
@@ -436,13 +436,13 @@ function ProjectsSection() {
       const blockWidth = projectData.length * scrollAmount;
 
       // Handle transparent boundary jumping BEFORE we do the smooth scroll
-      if (direction === 'left' && el.scrollLeft < blockWidth) {
+      if (direction === 'left' && el.scrollLeft < blockWidth * 4) {
         el.style.scrollBehavior = 'auto'; // Disable smooth scroll instantly
-        el.scrollLeft += blockWidth * 2; // Jump forward 2 blocks seamlessly
+        el.scrollLeft += blockWidth * 4; // Jump forward 4 blocks seamlessly
         void el.offsetWidth; // Force CSS reflow so the jump happens BEFORE the next line
-      } else if (direction === 'right' && el.scrollLeft > blockWidth * 3) {
+      } else if (direction === 'right' && el.scrollLeft > blockWidth * 8) {
         el.style.scrollBehavior = 'auto';
-        el.scrollLeft -= blockWidth * 2; // Jump backward 2 blocks seamlessly
+        el.scrollLeft -= blockWidth * 4; // Jump backward 4 blocks seamlessly
         void el.offsetWidth;
       }
 
@@ -548,15 +548,57 @@ function ProjectsSection() {
 
 
 function AboutSection() {
-  const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = React.useState('idle'); // idle, loading, success, error
+  const [formData, setFormData] = React.useState({ name: '', email: '', message: '', _honeypot: '' });
+  const [status, setStatus] = React.useState('idle'); // idle, loading, success, error, too-many-requests
+  const [errorMessage, setErrorMessage] = React.useState('');
 
   const handleInputChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const validateForm = () => {
+    const { name, email, message } = formData;
+    
+    // Name validation
+    if (name.trim().length < 2) {
+      setErrorMessage('Name must be at least 2 characters.');
+      return false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage('Please enter a valid email address.');
+      return false;
+    }
+
+    // Message validation
+    if (message.trim().length < 5) {
+      setErrorMessage('Message must be at least 5 characters.');
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Clear previous errors
+    setErrorMessage('');
+
+    // Honeypot check (client-side precaution, though handled by backend too)
+    if (formData._honeypot) {
+      console.warn('Bot detected via honeypot.');
+      setStatus('success'); // Fake success for bots
+      return;
+    }
+
+    if (!validateForm()) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('loading');
 
     try {
@@ -566,17 +608,26 @@ function AboutSection() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', _honeypot: '' });
         // Reset success message after 15 seconds
         setTimeout(() => setStatus('idle'), 15000);
       } else {
-        setStatus('error');
+        if (response.status === 429) {
+          setStatus('too-many-requests');
+          setErrorMessage('Too many requests. Please wait a minute and try again.');
+        } else {
+          setStatus('error');
+          setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        }
       }
     } catch (error) {
       console.error('Contact form error:', error);
       setStatus('error');
+      setErrorMessage('Unable to connect to the server. Please try again later.');
     }
   };
 
@@ -633,6 +684,18 @@ function AboutSection() {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4 mb-10">
+              {/* Special hidden field for bot protection (Honeypot) */}
+              <div style={{ display: 'none' }} aria-hidden="true">
+                <input
+                  type="text"
+                  name="_honeypot"
+                  value={formData._honeypot}
+                  onChange={handleInputChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
@@ -676,9 +739,9 @@ function AboutSection() {
                   Success! Your message has been sent.
                 </p>
               )}
-              {status === 'error' && (
+              {(status === 'error' || status === 'too-many-requests') && (
                 <p className="text-red-400 font-sans text-sm text-center font-medium mt-4">
-                  Sorry, something went wrong. Please try again.
+                  {errorMessage || 'Sorry, something went wrong. Please try again.'}
                 </p>
               )}
             </form>
