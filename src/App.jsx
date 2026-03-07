@@ -24,26 +24,23 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 lg:px-16 py-4 md:py-6 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         {/* Logo */}
-        <div className="flex flex-col">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
-                alt="Logo"
-                className="w-full h-full object-contain invert"
-              />
-            </div>
-            <span className="font-sans font-bold text-lg tracking-tight">wchernandez</span>
+        <a 
+          href="https://github.com/wchernandez" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-3"
+        >
+          <div className="w-8 h-8 flex items-center justify-center overflow-hidden transition-all hover:scale-110">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
+              alt="Logo"
+              className="w-full h-full object-contain invert"
+            />
           </div>
-          <a
-            href="https://github.com/wchernandez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[10px] text-secondary mt-1 ml-11 hover:text-white transition-colors flex items-center gap-1"
-          >
-            <ArrowUpRight size={10} /> Visit my GitHub!
-          </a>
-        </div>
+          <span className="font-sans font-bold text-lg tracking-tight text-white hover:text-accent transition-colors">
+            wchernandez
+          </span>
+        </a>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-4 items-center">
@@ -558,7 +555,7 @@ function AboutSection() {
 
   const validateForm = () => {
     const { name, email, message } = formData;
-    
+
     // Name validation
     if (name.trim().length < 2) {
       setErrorMessage('Name must be at least 2 characters.');
@@ -583,7 +580,7 @@ function AboutSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Clear previous errors
     setErrorMessage('');
 
@@ -781,21 +778,26 @@ function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
-        <div className="flex flex-col items-center md:items-start gap-4">
+        <a 
+          href="https://github.com/wchernandez" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex flex-col items-center md:items-start gap-4"
+        >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
+            <div className="w-8 h-8 flex items-center justify-center overflow-hidden transition-all hover:scale-110">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/1/10/Codicons_%E2%80%93_github-inverted.svg"
                 alt="Logo"
                 className="w-full h-full object-contain invert"
               />
             </div>
-            <span className="font-sans font-bold text-lg tracking-tight text-white uppercase">wchernandez</span>
+            <span className="font-sans font-bold text-lg tracking-tight text-white hover:text-accent transition-colors">wchernandez</span>
           </div>
           <p className="text-secondary text-sm font-sans max-w-[280px] text-center md:text-left">
             Building secure, intelligent systems with intentional design and high-fidelity implementation.
           </p>
-        </div>
+        </a>
 
         <div className="flex flex-col items-center md:items-end gap-6 w-full md:w-auto">
           <div className="flex gap-10 md:gap-8">
