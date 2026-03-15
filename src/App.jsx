@@ -24,9 +24,9 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 lg:px-16 py-4 md:py-6 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         {/* Logo */}
-        <a 
-          href="https://github.com/wchernandez" 
-          target="_blank" 
+        <a
+          href="https://github.com/wchernandez"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3"
         >
@@ -226,9 +226,17 @@ function Hero() {
 
 const projectData = [
   {
+    title: "CampusBite",
+    role: "Frontend and Backend Developer",
+    tier: "gold",
+    description: "CampusBite is a food-sharing platform designed to reduce food waste on university campuses. It connects students who have excess food with those who need it, using a simple, map-based interface.",
+    tags: ["Typescript", "Node.js", "Expo Go", "Gemini Vision API"],
+    image: "/assets/CampusBite.png"
+  },
+  {
     title: "LabDemo",
     role: "Solo Developer",
-    tier: "gold",
+    tier: "silver",
     description: "Learn to debug, not to copy. LabDemo helps you understand errors in the terminal and gives you tips on how to solve them, rather than directly giving you the solution.",
     tags: ["Typescript", "React.js", "Lucide", "Tailwind CSS", "Shadcn/ui", "eslint"],
     image: "/assets/LabDemo.png",
@@ -237,7 +245,7 @@ const projectData = [
   {
     title: "Citilyze",
     role: "Solo Developer",
-    tier: "silver",
+    tier: "bronze",
     description: "Gives cities a real-time 'governance health score' and predicts risks before they become crises.",
     tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
     image: "/assets/Citilyze.png",
@@ -246,7 +254,6 @@ const projectData = [
   {
     title: "The Hollow Masquerade",
     role: "Co-Developer",
-    tier: "bronze",
     description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
     tags: ["GDScript", "3D Modelling", "Texturing"],
     image: "/assets/thehollowmasquerade.jpg",
@@ -778,9 +785,9 @@ function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
-        <a 
-          href="https://github.com/wchernandez" 
-          target="_blank" 
+        <a
+          href="https://github.com/wchernandez"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center md:items-start gap-4"
         >
