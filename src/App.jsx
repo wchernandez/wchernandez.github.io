@@ -229,9 +229,10 @@ const projectData = [
     title: "CampusBite",
     role: "Frontend and Backend Developer",
     tier: "gold",
-    description: "CampusBite is a food-sharing platform designed to reduce food waste on university campuses. It connects students who have excess food with those who need it, using a simple, map-based interface.",
-    tags: ["Typescript", "Node.js", "Expo Go", "Gemini Vision API"],
-    image: "/assets/CampusBite.png"
+    description: "CampusBite is a food-sharing platform designed to reduce food waste on university campuses. It connects students who have excess food with those who need it, using a simple, map-based interface.\nDeveloped for UNIHACK 2026 in a group of 4.",
+    tags: ["Typescript", "Node.js", "Expo Go", "Gemini Vision API", "Firebase", "Mobile App Development"],
+    image: "/assets/CampusBite.png",
+    link: "https://github.com/Igaye42/CampusBite-Unihack"
   },
   {
     title: "LabDemo",
