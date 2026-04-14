@@ -226,6 +226,15 @@ function Hero() {
 
 const projectData = [
   {
+    title: "UWAC 2026 Beginner's Rocketry Firmware",
+    role: "Firmware Developer",
+    tier: "gold",
+    description: "Firmware for UWAC's 2026 Beginner's Rocketry Programme Kits. Designed to safely decouple at apogee and deploy a main parachute at 300m AGL. Features include IMU-based flight state detection and LED blink codes for diagnostics.",
+    tags: ["C++", "Arduino", "Telemetry", "Data-Logging", "Flight Computer"],
+    image: "/assets/UWACBP26.png",
+    link: "https://github.com/wchernandez/UWAC-BP26-Firmware"
+  },
+  {
     title: "CampusBite",
     role: "Frontend and Backend Developer",
     tier: "gold",
