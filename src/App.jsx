@@ -668,7 +668,7 @@ function AboutSection() {
               </div>
 
               {/* Qualifications */}
-              <div className="group">
+              {/* <div className="group">
                 <h3 className="font-sans font-bold text-accent tracking-widest uppercase text-[10px] mb-2 px-3 py-1 bg-accent/10 w-fit rounded-full">Qualifications</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -680,7 +680,7 @@ function AboutSection() {
                     <p className="font-sans text-secondary text-xs">Cloud Practitioner</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Programming */}
               <div className="group">
