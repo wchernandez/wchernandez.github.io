@@ -226,6 +226,15 @@ function Hero() {
 
 const projectData = [
   {
+    title: "Anatomy Explorer",
+    role: "Co-Developer",
+    tier: "gold",
+    description: "A comprehensive, high-fidelity, educational 3D anatomy visualisation app designed to familiarise individuals with the human body and its systems. Features different layers of the human body, real-time dynamic scaling and four dedicated quiz modes to test knowledge on specific layers or regions of the human body in different aspects.",
+    tags: ["React Three Fiber", "Three.js", "Blender", "Dynamic Scaling"],
+    image: "/assets/UWACBP26.png",
+    link: "https://github.com/wchernandez/UWAC-BP26-Firmware"
+  },
+  {
     title: "UWAC 2026 Beginner's Rocketry Firmware",
     role: "Firmware Developer",
     tier: "gold",
@@ -244,6 +253,15 @@ const projectData = [
     link: "https://github.com/Igaye42/CampusBite-Unihack"
   },
   {
+    title: "The Hollow Masquerade",
+    role: "Co-Developer",
+    tier: "silver",
+    description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
+    tags: ["GDScript", "3D Modelling", "Texturing"],
+    image: "/assets/thehollowmasquerade.jpg",
+    link: "https://willhaven.itch.io/the-hollow-masquerade"
+  },
+  {
     title: "LabDemo",
     role: "Solo Developer",
     tier: "silver",
@@ -260,22 +278,6 @@ const projectData = [
     tags: ["Typescript", "Leaflet.js", "Next.js", "Tailwind CSS"],
     image: "/assets/Citilyze.png",
     link: "https://citilyze.vercel.app"
-  },
-  {
-    title: "The Hollow Masquerade",
-    role: "Co-Developer",
-    description: "First-person 3D horror game where you place masks on mannequins scattered around the map to escape. Be careful, as one of the mannequins may be a monster looking to hunt you. Developed on Godot Engine using GDScript and models created on Blender.\n\nCreated for Global GameJam 2024.",
-    tags: ["GDScript", "3D Modelling", "Texturing"],
-    image: "/assets/thehollowmasquerade.jpg",
-    link: "https://willhaven.itch.io/the-hollow-masquerade"
-  },
-  {
-    title: "SaveYourFood",
-    role: "Solo Developer",
-    description: "Find recipes with ingredients you have on hand!",
-    tags: ["Mocha"],
-    image: "/assets/SaveYourFood.png",
-    link: "https://luqkciwzpyawq.mocha.app/"
   }
 ];
 
