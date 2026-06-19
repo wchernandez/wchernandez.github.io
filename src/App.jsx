@@ -231,8 +231,8 @@ const projectData = [
     tier: "gold",
     description: "A comprehensive, high-fidelity, educational 3D anatomy visualisation app designed to familiarise individuals with the human body and its systems. Features different layers of the human body, real-time dynamic scaling and four dedicated quiz modes to test knowledge on specific layers or regions of the human body in different aspects.",
     tags: ["React Three Fiber", "Three.js", "Blender", "Dynamic Scaling"],
-    image: "/assets/UWACBP26.png",
-    link: "https://github.com/wchernandez/UWAC-BP26-Firmware"
+    image: "/assets/anatomyExplorer.png",
+    link: "https://github.com/wchernandez/Anatomy-Explorer"
   },
   {
     title: "UWAC 2026 Beginner's Rocketry Firmware",
