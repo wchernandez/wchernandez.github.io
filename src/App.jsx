@@ -686,8 +686,13 @@ function AboutSection() {
 
               {/* Programming */}
               <div className="group">
-                <h3 className="font-sans font-bold text-accent tracking-widest uppercase text-[10px] mb-2 px-3 py-1 bg-accent/10 w-fit rounded-full">Programming Languages</h3>
-                <p className="font-sans text-secondary text-sm leading-relaxed">Python, MATLAB, C++, Arduino, C#, Java, JavaScript, Verilog, VHDL.</p>
+                <h3 className="font-sans font-bold text-accent tracking-widest uppercase text-[10px] mb-2 px-3 py-1 bg-accent/10 w-fit rounded-full">Languages</h3>
+                <p className="font-sans text-secondary text-sm leading-relaxed">Python, MATLAB, C++, Arduino, C#, Java, JavaScript, Verilog, VHDL, HTML, CSS</p>
+              </div>
+              {/* Programming */}
+              <div className="group">
+                <h3 className="font-sans font-bold text-accent tracking-widest uppercase text-[10px] mb-2 px-3 py-1 bg-accent/10 w-fit rounded-full">Frameworks / Libraries</h3>
+                <p className="font-sans text-secondary text-sm leading-relaxed">React, Three.js,Node.js, Next.js, Express, Flask.</p>
               </div>
             </div>
           </div>
