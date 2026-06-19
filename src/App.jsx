@@ -211,7 +211,7 @@ function Hero() {
                   Ambitious, enthusiastic, well-rounded.
                 </h3>
                 <p className="font-sans text-sm md:text-base text-secondary leading-relaxed">
-                  I am a software engineering student who builds secure, intelligent systems with a focus on cybersecurity, AI, and deep learning. I enjoy turning complex problems into clean, scalable solutions.
+                  I am a software engineering student who enjoys building projects with a focus on embedded systems and machine learning. I am excited to explore various fields within software development, maintaining a multifasceted skill set.
                 </p>
               </div>
             </div>
@@ -482,7 +482,7 @@ function ProjectsSection() {
           </h2>
           <div className="hidden lg:block w-[1px] h-20 bg-white/20 shrink-0" />
           <p className="font-sans text-secondary text-base lg:text-lg leading-relaxed m-0 text-center lg:text-left max-w-2xl">
-            This portfolio highlights a selection of software engineering projects that demonstrate my technical capabilities, problem-solving approach, and growing expertise in cybersecurity, artificial intelligence, and scalable system design
+            This portfolio highlights a selection of software engineering projects that demonstrate my technical capabilities through a variety of personal and collaborative work. Each project includes a brief description, the technologies used, and links to the source code or live demos where applicable.
           </p>
         </div>
       </div>
