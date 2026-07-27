@@ -250,7 +250,7 @@ const projectData = [
     description: "Development version of the UWAC Club website, built using React featuring Cloudflare Pages hosting, Cloudflare D1 and R2 databases to host images and blog posts, and a custom CMS for content management.",
     tags: ["React.js", "Cloudflare", "Entra ID", "Microsoft Automate", "CMS"],
     image: "/assets/uwacWebsite.png",
-    link: "https://refactor.uwac.pages.dev"
+    link: "https://refactor.uwacnz.pages.dev"
   },
   {
     title: "CampusBite",
