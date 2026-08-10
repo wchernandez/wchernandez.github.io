@@ -253,6 +253,15 @@ const projectData = [
     link: "https://refactor.uwacnz.pages.dev"
   },
   {
+    title: "Nurse Notes",
+    role: "Frontend Developer",
+    tier: "gold",
+    description: "A web application designed to help nurses turn complex medical jargon into simple, understandable language for patients. It features a user-friendly interface that allows nurses to input medical notes and receive clear explanations suitable for patient comprehension.",
+    tags: ["React.js", "TypeScript", "Tailwind CSS", "Expo Go", "LM Studio", "Gemma-3n-e4b"],
+    image: "/assets/NurseNotes.png",
+    link: "https://github.com/HimendraFdo/Nurse-Notes"
+  },
+  {
     title: "CampusBite",
     role: "Frontend and Backend Developer",
     tier: "gold",
